@@ -21,7 +21,7 @@ if(isset($_POST['email']) && isset($_POST['password']))
             $_SESSION['email'] = $email;
             $_SESSION['id'] = $reponse['id'];
             $_SESSION['acces'] = 1;
-            header('Location: ../index.php');
+            header('Location: ../Profil.php');
          }
          else
          {
