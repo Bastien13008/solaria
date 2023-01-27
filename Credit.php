@@ -10,8 +10,10 @@
     <script class="u-script" type="text/javascript" src="js/jquery.js" defer=""></script>
     <script class="u-script" type="text/javascript" src="js/solaria.js" defer=""></script>
     <meta name="generator" content="Nicepage 5.3.2, nicepage.com">
+    <meta name="referrer" content="origin">
     <link id="u-theme-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i">
     <link id="u-page-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400i,700,700i">
+    
     
     
     
@@ -97,7 +99,6 @@
       <div class="u-clearfix u-sheet u-sheet-1">
         <div class="u-list u-list-1">
           <div class="u-repeater u-repeater-1">
-
           <?php
 require_once 'config.php'; 
 $bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -131,13 +132,32 @@ while ($row = $stmt->fetch()) {
 }
 ?>
 
-            
-            
+  
 
-            
-
-
-
+        </div>
+        <div class="u-border-3 u-border-black u-container-style u-custom-color-8 u-group u-shape-rectangle u-group-13">
+          <div class="u-container-layout u-container-layout-19">
+            <div class="u-border-3 u-border-black u-border-no-left u-border-no-right u-border-no-top u-container-style u-custom-color-1 u-expanded-width u-group u-shape-rectangle u-group-14">
+              <div class="u-container-layout u-valign-middle u-container-layout-20">
+                <h6 class="u-text u-text-default u-text-7">Saisir votre code</h6>
+              </div>
+            </div>
+            <div class="u-form u-form-1">
+              <form action="https://forms.nicepagesrv.com/v2/form/process" class="u-clearfix u-form-spacing-25 u-form-vertical u-inner-form" source="email" name="form" style="padding: 38px;">
+                <div class="u-form-email u-form-group u-label-top">
+                  <label for="email-f580" class="u-label u-label-1">Code</label>
+                  <input type="email" id="email-f580" name="text" class="u-border-2 u-border-custom-color-2 u-custom-color-6 u-input u-input-rectangle u-text-white u-input-1" required="">
+                </div>
+                <div class="u-align-center u-form-group u-form-submit u-label-top">
+                  <input type="submit" value="submit" class="u-form-control-hidden">
+                  <a href="#" class="u-border-3 u-border-active-custom-color-4 u-border-custom-color-4 u-border-hover-custom-color-4 u-border-no-left u-border-no-right u-border-no-top u-btn u-btn-round u-btn-submit u-button-style u-custom-color-3 u-hover-custom-color-3 u-radius-7 u-btn-7" data-animation-name="" data-animation-duration="0" data-animation-delay="0" data-animation-direction="">Confirmation</a>
+                </div>
+                <div class="u-form-send-message u-form-send-success"></div>
+                <div class="u-form-send-error u-form-send-message"></div>
+                <input type="hidden" value="" name="recaptchaResponse">
+                <input type="hidden" name="formServices" value="af7ba5ef84dce00e39fb07f32e4aa305">
+              </form>
+            </div>
           </div>
         </div>
       </div>
@@ -147,17 +167,52 @@ while ($row = $stmt->fetch()) {
     </section>
     
     
-    
-    <section class="u-backlink u-clearfix u-grey-80">
-      <a class="u-link" href="https://nicepage.com/website-design" target="_blank">
-        <span>Free Website Design</span>
-      </a>
-      <p class="u-text">
-        <span>created with</span>
-      </p>
-      <a class="u-link" href="" target="_blank">
-        <span>WYSIWYG Web Builder</span>
-      </a>. 
-    </section>
-  
-</body></html>
+
+  <section class="u-black u-clearfix u-container-style u-dialog-block u-opacity u-opacity-70 u-dialog-section-6" id="sec-3376">
+      <div class="u-container-style u-custom-color-8 u-dialog u-dialog-1">
+        <div class="u-container-layout u-valign-bottom-md u-valign-bottom-sm u-valign-bottom-xs u-container-layout-1">
+          <div class="u-border-5 u-border-black u-border-no-top u-container-style u-grey-90 u-group u-shape-rectangle u-group-1">
+            <div class="u-container-layout u-container-layout-2">
+              <div class="u-border-5 u-border-black u-border-no-left u-border-no-right u-container-style u-custom-color-1 u-expanded-width u-group u-shape-rectangle u-group-2">
+                <div class="u-container-layout u-valign-bottom u-container-layout-3">
+                  <p class="u-text u-text-custom-color-4 u-text-1" data-animation-name="" data-animation-duration="0" data-animation-delay="0" data-animation-direction="">Audiotel</p>
+                </div>
+              </div>
+              <p class="u-text u-text-custom-color-3 u-text-2">0 658 8059 5582</p>
+              <p class="u-text u-text-3">Exemple de texte. Cliquez pour sélectionner l'élément de texte.</p>
+            </div>
+          </div>
+          <div class="u-border-5 u-border-black u-border-no-top u-container-style u-grey-90 u-group u-shape-rectangle u-group-3" data-animation-name="" data-animation-duration="0" data-animation-delay="0" data-animation-direction="">
+            <div class="u-container-layout u-container-layout-4">
+              <div class="u-border-5 u-border-black u-border-no-left u-border-no-right u-custom-color-1 u-expanded-width u-shape u-shape-1"></div>
+              <p class="u-text u-text-custom-color-4 u-text-4" data-animation-name="" data-animation-duration="0" data-animation-delay="0" data-animation-direction="">Carte bancaire </p>
+              <p class="u-text u-text-5">Exemple de texte. Cliquez pour sélectionner l'élément de texte.</p>
+              <a href="https://nicepage.com/k/teacher-website-templates" class="u-border-3 u-border-active-custom-color-4 u-border-custom-color-4 u-border-hover-custom-color-4 u-border-no-left u-border-no-right u-border-no-top u-btn u-btn-round u-button-style u-custom-color-3 u-hover-custom-color-3 u-radius-7 u-btn-1" data-animation-name="" data-animation-duration="0" data-animation-delay="0" data-animation-direction="">Acheter</a>
+            </div>
+          </div>
+          <div class="u-container-style u-expanded-width-md u-expanded-width-sm u-expanded-width-xs u-grey-90 u-group u-shape-rectangle u-group-4">
+            <div class="u-container-layout u-valign-bottom-sm u-container-layout-5">
+              <p class="u-text u-text-default-lg u-text-default-md u-text-default-sm u-text-default-xl u-text-6"> Saisir votre&nbsp;<span class="u-text-custom-color-3">code</span>
+              </p>
+              <div class="u-form u-form-1">
+                <form action="https://forms.nicepagesrv.com/v2/form/process" class="u-clearfix u-form-spacing-10 u-form-vertical u-inner-form" source="email" name="form" style="padding: 10px;">
+                  <div class="u-form-group u-form-name u-label-none">
+                    <label for="name-6caa" class="u-label">Nom</label>
+                    <input type="text" placeholder="Saisir votre nom" id="name-6caa" name="name" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white" required="">
+                  </div>
+                  <div class="u-align-center u-form-group u-form-submit u-label-none">
+                    <a href="#" class="u-border-3 u-border-active-custom-color-4 u-border-custom-color-4 u-border-hover-custom-color-4 u-border-no-left u-border-no-right u-border-no-top u-btn u-btn-round u-btn-submit u-button-style u-custom-color-3 u-hover-custom-color-3 u-radius-7 u-btn-2" data-animation-name="" data-animation-duration="0" data-animation-delay="0" data-animation-direction="">Soumettre</a>
+                    <input type="submit" value="submit" class="u-form-control-hidden">
+                  </div>
+                  <div class="u-form-send-message u-form-send-success"> Merci ! Votre message a été envoyé. </div>
+                  <div class="u-form-send-error u-form-send-message"> Impossible d'envoyer votre message. Merci de corriger les erreurs et réessayer. </div>
+                  <input type="hidden" value="" name="recaptchaResponse">
+                  <input type="hidden" name="formServices" value="af7ba5ef84dce00e39fb07f32e4aa305">
+                </form>
+              </div>
+            </div>
+          </div>
+        </div><button class="u-dialog-close-button u-icon u-text-grey-40 u-icon-1"><svg class="u-svg-link" preserveAspectRatio="xMidYMin slice" viewBox="0 0 16 16" style=""><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-efe9"></use></svg><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" xml:space="preserve" class="u-svg-content" viewBox="0 0 16 16" x="0px" y="0px" id="svg-efe9"><rect x="7" y="0" transform="matrix(0.7071 -0.7071 0.7071 0.7071 -3.3138 8.0002)" width="2" height="16"></rect><rect x="0" y="7" transform="matrix(0.7071 -0.7071 0.7071 0.7071 -3.3138 8.0002)" width="16" height="2"></rect></svg></button>
+      </div>
+</body>
+</html>

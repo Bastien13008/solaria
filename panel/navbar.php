@@ -42,21 +42,14 @@ echo'
 </li>
 
 <li class="nav-item menu-items">
-<a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
+<a class="nav-link" href="dedipass.php">
   <span class="menu-icon">
-    <i class="mdi mdi-cash "></i>
+    <i class="mdi mdi-cash  "></i>
   </span>
-  <span class="menu-title">Paiements</span>
-  <i class="menu-arrow"></i>
+  <span class="menu-title">Payements</span>
 </a>
-<div class="collapse" id="ui-basic">
-  <ul class="nav flex-column sub-menu">
-    <li class="nav-item"> <a class="nav-link" href="dedipass.php">Dedipass</a></li>
-    <li class="nav-item"> <a class="nav-link" href="cartebancaire.php">Carte Bancaire</a></li>
-    <li class="nav-item"> <a class="nav-link" href="paysafecard.php">Paysafecard</a></li>
-  </ul>
-</div>
 </li>
+
 
 <li class="nav-item menu-items">
 <a class="nav-link" href="vote.php">
