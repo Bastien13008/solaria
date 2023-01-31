@@ -156,10 +156,10 @@ if ($reponse['Rangs'] != 1) {
 
 
                     
-                    <form action="credit_post.php" method="post">
+                    <form action="categoriewiki_post.php" method="post">
                       <div class="form-group">
-                        <label for="exampleInputName1">Prix</label>
-                        <input type="text" class="form-control" name="Prix" placeholder="Le pseudo">
+                        <label for="exampleInputName1">Titre</label>
+                        <input type="text" class="form-control" name="Titre" placeholder="Le pseudo">
                       </div>
                       <div class="form-group">
                         <label for="exampleInputName1">Url Images</label>
@@ -178,7 +178,7 @@ if ($reponse['Rangs'] != 1) {
               <div class="col-12 grid-margin">
                 <div class="card">
                   <div class="card-body">
-                    <h4 class="card-title">List des Articles</h4>
+                    <h4 class="card-title">List des catégories</h4>
                     <div class="table-responsive">
 <table class="table" id="table-data">
 <thead>
@@ -187,14 +187,13 @@ if ($reponse['Rangs'] != 1) {
     </div>
   </th>
   <th> L'Auteur </th>
-  <th> Le Prix </th>
+  <th> Le Titre </th>
   <th> Options </th>
 </tr>
 </thead>
   <?php
-  
   require_once '../config.php'; 
-  $stmt = $bdd->prepare('SELECT * FROM Credits');
+  $stmt = $bdd->prepare('SELECT * FROM wiki_categorie');
   $stmt->execute();
   
   while ($reponsepay = $stmt->fetch(PDO::FETCH_ASSOC)) {
@@ -208,16 +207,16 @@ if ($reponse['Rangs'] != 1) {
                       </div>
                     </td>
                     <td>
-                    <img src="https://mc-heads.net/avatar/'. $reponsepay['Auteur'].'/45" alt="image" />
-                    <span class="pl-2">'.$reponsepay['Auteur'].'</span>
+                    <img src="https://mc-heads.net/avatar/'. $reponsepay['auteur'].'/45" alt="image" />
+                    <span class="pl-2">'.$reponsepay['auteur'].'</span>
                     </td>
-                    <td> '.$reponsepay['Prix'].'</td>
+                    <td> '.$reponsepay['Titre'].'</td>
                     ';
                 
 
                     echo'
                     <td>
-                    <a href="deletecredit.php?id='.$reponsepay['ID'].'">
+                    <a href="deletewikicategorie.php?id='.$reponsepay['id'].'">
                     <button type="button" class="btn btn-danger btn-icon-text">
                     <i class="mdi mdi-delete-forever  btn-icon-prepend" ></i> Supprimer </button>   
                     </a>                 

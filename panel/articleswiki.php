@@ -16,6 +16,10 @@ if ($reponse['Rangs'] != 1) {
 ?><!DOCTYPE html>
 <html lang="en">
   <head>
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
+
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -152,19 +156,36 @@ if ($reponse['Rangs'] != 1) {
             <div class="col-12 grid-margin stretch-card">
                 <div class="card">
                   <div class="card-body">
-                    <h4 class="card-title">Crée des offres de crédits</h4>
+                    <h4 class="card-title">Crée des articles wiki</h4>
 
 
                     
-                    <form action="credit_post.php" method="post">
+                    <form action="articlewiki_post.php" method="post">
                       <div class="form-group">
-                        <label for="exampleInputName1">Prix</label>
-                        <input type="text" class="form-control" name="Prix" placeholder="Le pseudo">
+                        <label for="exampleInputName1">Articles</label>
+                        <textarea class="form-control"id="summernote" name="Descript" rows="6" placeholder="L'article"></textarea>
                       </div>
-                      <div class="form-group">
-                        <label for="exampleInputName1">Url Images</label>
-                        <input type="text" class="form-control" name="Files" placeholder="L'images">
+                      
+                      <div class="col-md-6">
+                          <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">Catégorie</label>
+                            <div class="col-sm-9">
+                              <select class="form-control"  name="categorie">
+                              <?php
+  
+  require_once '../config.php'; 
+  $stmt = $bdd->prepare('SELECT * FROM wiki_categorie');
+  $stmt->execute();
+  
+  while ($reponsepay = $stmt->fetch(PDO::FETCH_ASSOC)) {
+      echo '<option>'.$reponsepay["Titre"].'</option>';
+  }
+  ?> 
+</select>
                       </div>
+                      </div>
+                      </div>
+
             
                       <button type="submit" class="btn btn-primary mr-2">Valider</button>
                     </form>
@@ -172,6 +193,23 @@ if ($reponse['Rangs'] != 1) {
                   </div>
                 </div>
               </div>
+
+              <script>
+      $('#summernote').summernote({
+        placeholder: 'Hello stand alone ui',
+        tabsize: 2,
+        height: 120,
+        toolbar: [
+          ['style', ['style']],
+          ['font', ['bold', 'underline', 'clear']],
+          ['color', ['color']],
+          ['para', ['ul', 'ol', 'paragraph']],
+          ['table', ['table']],
+          ['insert', ['link', 'picture', 'video']],
+          ['view', ['fullscreen', 'codeview', 'help']]
+        ]
+      });
+    </script>
 
         
               <div class="row ">
@@ -187,14 +225,14 @@ if ($reponse['Rangs'] != 1) {
     </div>
   </th>
   <th> L'Auteur </th>
-  <th> Le Prix </th>
+  <th> Catégorie </th>
   <th> Options </th>
 </tr>
 </thead>
   <?php
   
   require_once '../config.php'; 
-  $stmt = $bdd->prepare('SELECT * FROM Credits');
+  $stmt = $bdd->prepare('SELECT * FROM wiki_articles');
   $stmt->execute();
   
   while ($reponsepay = $stmt->fetch(PDO::FETCH_ASSOC)) {
@@ -208,16 +246,16 @@ if ($reponse['Rangs'] != 1) {
                       </div>
                     </td>
                     <td>
-                    <img src="https://mc-heads.net/avatar/'. $reponsepay['Auteur'].'/45" alt="image" />
-                    <span class="pl-2">'.$reponsepay['Auteur'].'</span>
+                    <img src="https://mc-heads.net/avatar/'. $reponsepay['auteur'].'/45" alt="image" />
+                    <span class="pl-2">'.$reponsepay['auteur'].'</span>
                     </td>
-                    <td> '.$reponsepay['Prix'].'</td>
+                    <td>'.$reponsepay['categorie'].'</td>
                     ';
                 
 
                     echo'
                     <td>
-                    <a href="deletecredit.php?id='.$reponsepay['ID'].'">
+                    <a href="deletewikiarticle.php?id='.$reponsepay['id'].'">
                     <button type="button" class="btn btn-danger btn-icon-text">
                     <i class="mdi mdi-delete-forever  btn-icon-prepend" ></i> Supprimer </button>   
                     </a>                 
