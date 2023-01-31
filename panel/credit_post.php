@@ -1,15 +1,8 @@
 <?php
-session_start();
 require_once '../config.php'; 
 
-$stmt = $bdd->prepare('SELECT * FROM Utilisateur WHERE id = :id');
-$stmt->bindValue(':id', $_SESSION['id']);
-$stmt->execute();
-$reponseuser = $stmt->fetch(PDO::FETCH_ASSOC);   
-
-$title = $_POST['Prix'];
-$images = $_POST['Files'];
-$pseudo = $reponseuser['pseudo']; 
+$public_key = $_POST['public_key'];
+$private_key = $_POST['private_key'];
 
 
 
@@ -17,11 +10,11 @@ $pseudo = $reponseuser['pseudo'];
 
 
 
-$insert = $bdd->prepare('INSERT INTO Credits(Images, Prix, Auteur) VALUES(:Images, :Title,:Pseudo)');
+
+$insert = $bdd->prepare('INSERT INTO dedipass(public_key, private_key) VALUES(:public_key,:private_key)');
 $insert->execute(array(
-    'Title' => $title,
-    'Images' => $images,
-    'Pseudo' => $pseudo
+    'public_key' => $public_key,
+    'private_key' => $private_key
 ));
 header('Location: credit.php');
 

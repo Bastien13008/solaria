@@ -1,3 +1,7 @@
+<?php
+session_start();
+$ping = file_get_contents("https://api.serveurs-minecraft.com/api.php?Joueurs_En_Ligne_Ping&ip=play.skysword.fr&port=25565");
+?>
 <!DOCTYPE html>
 <html style="font-size: 16px;" lang="fr"><head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -104,7 +108,7 @@
         <div class="u-black u-container-style u-group u-opacity u-opacity-45 u-shape-rectangle u-group-1">
           <div class="u-container-layout u-container-layout-1">
             <a href="blog/blog.html" class="u-border-3 u-border-active-custom-color-4 u-border-custom-color-4 u-border-hover-custom-color-4 u-border-no-left u-border-no-right u-border-no-top u-btn u-btn-round u-button-style u-custom-color-3 u-hover-custom-color-3 u-radius-7 u-btn-1">play.solaria-mc.fr</a>
-            <h4 class="u-text u-text-default u-text-1"><span class="u-file-icon u-icon u-text-white u-icon-1"><img src="/c7cf08ad72c43/44386-1c4cf74d.png" alt=""></span>&nbsp;Rejoins <span style="font-style: italic;" class="u-text-custom-color-3">70 </span>joueurs 
+            <h4 class="u-text u-text-default u-text-1"><span class="u-file-icon u-icon u-text-white u-icon-1"><img src="images/44386-1c4cf74d.png" alt=""></span>&nbsp;Rejoins <?php echo'<span style="font-style: italic;" class="u-text-custom-color-3">'.$ping.' </span>';?>joueurs 
             </h4>
           </div>
         </div>

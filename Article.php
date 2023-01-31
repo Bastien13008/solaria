@@ -8,6 +8,10 @@ $reponse = $requete->fetch(PDO::FETCH_ASSOC);
 $requetedisable=$bdd->exec('UPDATE Article SET View=View+1 WHERE ID="'.$_GET['id'].'"');
 
 ?>
+<?php
+session_start();
+$ping = file_get_contents("https://api.serveurs-minecraft.com/api.php?Joueurs_En_Ligne_Ping&ip=play.skysword.fr&port=25565");
+?>
 <!DOCTYPE html>
 <html style="font-size: 16px;" lang="fr"><head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -39,13 +43,29 @@ $requetedisable=$bdd->exec('UPDATE Article SET View=View+1 WHERE ID="'.$_GET['id
   <body class="u-body u-xl-mode" data-lang="fr"><header class="u-border-no-bottom u-border-no-left u-border-no-right u-border-no-top u-clearfix u-header u-section-row-container" id="sec-0749" style=""><div class="u-section-rows">
         <div class="u-custom-color-1 u-section-row u-section-row-1" id="sec-b8ea">
           <div class="u-clearfix u-sheet u-sheet-1">
+          <?php 
+            if(!isset($_SESSION['id'])) {
+            echo'            
             <a href="Connexion.php" class="u-border-none u-btn u-button-style u-hover-black u-none u-btn-1">Connexion<span style="font-weight: 400;">
                 <span style="font-weight: 700;"> &nbsp; </span>
               </span>
             </a>
             <a href="Inscription.php" class="u-border-none u-btn u-button-style u-hover-black u-none u-btn-2">Inscription</a>
           </div>
-          
+            ';
+            } 
+            else
+            {
+                echo'
+                <a href="Profil.php" class="u-border-none u-btn u-button-style u-hover-black u-none u-btn-1">Mon Profil<span style="font-weight: 400;">
+                <span style="font-weight: 700;"> &nbsp; </span>
+              </span>
+            </a>
+            <a href="../Login/Deconnexion.php" class="u-border-none u-btn u-button-style u-hover-black u-none u-btn-2">Deconnexion</a>
+          </div>
+                ';
+            }
+            ?>
           
           
           
@@ -96,7 +116,7 @@ $requetedisable=$bdd->exec('UPDATE Article SET View=View+1 WHERE ID="'.$_GET['id
         <div class="u-black u-container-style u-group u-opacity u-opacity-45 u-shape-rectangle u-group-1">
           <div class="u-container-layout u-container-layout-1">
             <a href="blog/blog.html" class="u-border-3 u-border-active-custom-color-4 u-border-custom-color-4 u-border-hover-custom-color-4 u-border-no-left u-border-no-right u-border-no-top u-btn u-btn-round u-button-style u-custom-color-3 u-hover-custom-color-3 u-radius-7 u-btn-1">play.solaria-mc.fr</a>
-            <h4 class="u-text u-text-default u-text-1"><span class="u-file-icon u-icon u-text-white u-icon-1"><img src="/c7cf08ad72c43/44386-1c4cf74d.png" alt=""></span>&nbsp;Rejoins <span style="font-style: italic;" class="u-text-custom-color-3">70 </span>joueurs 
+            <h4 class="u-text u-text-default u-text-1"><span class="u-file-icon u-icon u-text-white u-icon-1"><img src="images/44386-1c4cf74d.png" alt=""></span>&nbsp;Rejoins <?php echo'<span style="font-style: italic;" class="u-text-custom-color-3">'.$ping.' </span>';?>joueurs 
             </h4>
           </div>
         </div>

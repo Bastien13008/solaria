@@ -158,18 +158,14 @@ if ($reponse['Rangs'] != 1) {
                     
                     <form action="credit_post.php" method="post">
                       <div class="form-group">
-                        <label for="exampleInputName1">Prix</label>
-                        <input type="text" class="form-control" name="Prix" placeholder="Le pseudo">
+                        <label for="exampleInputName1">public_key</label>
+                        <input type="text" class="form-control" name="public_key" placeholder="public_key">
                       </div>
                       <div class="form-group">
-                        <label for="exampleInputName1">Url Images</label>
-                        <input type="text" class="form-control" name="Files" placeholder="L'images">
+                        <label for="exampleInputName1">private_key</label>
+                        <input type="text" class="form-control" name="private_key" placeholder="private_key">
                       </div>
-                      <div class="form-group">
-                        <label for="exampleInputName1">Url payment</label>
-                        <input type="text" class="form-control" name="Files" placeholder="L'images">
-                      </div>
-            
+
                       <button type="submit" class="btn btn-primary mr-2">Valider</button>
                     </form>
 
@@ -190,15 +186,15 @@ if ($reponse['Rangs'] != 1) {
   <th>
     </div>
   </th>
-  <th> L'Auteur </th>
-  <th> Le Prix </th>
+  <th> public_key </th>
+  <th> private_key </th>
   <th> Options </th>
 </tr>
 </thead>
   <?php
   
   require_once '../config.php'; 
-  $stmt = $bdd->prepare('SELECT * FROM Credits');
+  $stmt = $bdd->prepare('SELECT * FROM dedipass');
   $stmt->execute();
   
   while ($reponsepay = $stmt->fetch(PDO::FETCH_ASSOC)) {
@@ -210,18 +206,15 @@ if ($reponse['Rangs'] != 1) {
                         <label class="form-check-label">
                         </label>
                       </div>
-                    </td>
-                    <td>
-                    <img src="https://mc-heads.net/avatar/'. $reponsepay['Auteur'].'/45" alt="image" />
-                    <span class="pl-2">'.$reponsepay['Auteur'].'</span>
-                    </td>
-                    <td> '.$reponsepay['Prix'].'</td>
+                    <td> '.$reponsepay['public_key'].'</td>
+                    <td> '.$reponsepay['private_key'].'</td>
+
                     ';
                 
 
                     echo'
                     <td>
-                    <a href="deletecredit.php?id='.$reponsepay['ID'].'">
+                    <a href="deletecredit.php?id='.$reponsepay['id'].'">
                     <button type="button" class="btn btn-danger btn-icon-text">
                     <i class="mdi mdi-delete-forever  btn-icon-prepend" ></i> Supprimer </button>   
                     </a>                 
