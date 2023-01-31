@@ -133,7 +133,7 @@ while ($row = $stmt->fetch()) {
                 <div class="u-container-style u-list-item u-repeater-item">
                   <div class="u-container-layout u-similar-container u-valign-middle u-container-layout-2">
                     <div class="u-border-5 u-border-black u-container-style u-custom-color-8 u-group u-shape-rectangle u-group-3">
-                    <a href="ArticleWiki.php?id='.$row['id'].'">
+                    <a href="ArticleWiki.php?id='.$row['id'].'&categorie='.$row['Titre'].'">
                       <div class="u-container-layout u-container-layout-3">
                         <img class="u-image u-image-round u-radius-10 u-image-1" src="'.$row['image'].'" alt="" data-image-width="1920" data-image-height="1080">
                         <h6 class="u-text u-text-default u-text-1">'.$row['Titre'].'</h6>

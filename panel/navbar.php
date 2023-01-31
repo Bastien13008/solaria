@@ -41,15 +41,6 @@ echo'
 </a>
 </li>
 
-<li class="nav-item menu-items">
-<a class="nav-link" href="dedipass.php">
-  <span class="menu-icon">
-    <i class="mdi mdi-cash  "></i>
-  </span>
-  <span class="menu-title">Payements</span>
-</a>
-</li>
-
 
 <li class="nav-item menu-items">
 <a class="nav-link" href="vote.php">

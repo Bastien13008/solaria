@@ -99,72 +99,21 @@
       <div class="u-clearfix u-sheet u-sheet-1">
         <div class="u-list u-list-1">
           <div class="u-repeater u-repeater-1">
-          <?php
-require_once 'config.php'; 
-$bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-$stmt = $bdd->prepare("SELECT * FROM Credits"); 
-$stmt->execute();
-
-$result = $stmt->setFetchMode(PDO::FETCH_ASSOC); 
-
-while ($row = $stmt->fetch()) {
-    echo'
-            <div class="u-container-style u-custom-item u-list-item u-repeater-item u-shape-rectangle">
-              <div class="u-container-layout u-similar-container u-container-layout-1">
-                <div class="u-border-3 u-border-black u-container-style u-custom-item u-grey-80 u-group u-radius-4 u-shape-round u-group-1">
-                  <div class="u-container-layout u-valign-bottom u-container-layout-2">
-                    <img class="u-image u-image-contain u-image-default u-image-1" src="'.$row['Images'].'" alt="" data-image-width="1000" data-image-height="1000">
-                    <div class="u-border-3 u-border-black u-border-no-bottom u-border-no-left u-border-no-right u-container-style u-custom-item u-expanded-width u-grey-80 u-group u-shape-rectangle u-group-2">
-                      <div class="u-container-layout u-container-layout-3">
-                        <a href="https://nicepage.com/website-builder" class="u-border-3 u-border-active-custom-color-4 u-border-custom-color-4 u-border-hover-custom-color-4 u-border-no-left u-border-no-right u-border-no-top u-btn u-btn-round u-button-style u-custom-color-3 u-custom-item u-hover-custom-color-3 u-radius-7 u-btn-1" data-animation-name="" data-animation-duration="0" data-animation-delay="0" data-animation-direction="">&nbsp;<span class="u-file-icon u-icon u-text-white u-icon-1" data-animation-name="" data-animation-duration="0" data-animation-delay="0" data-animation-direction=""><img src="images/2420157-7647f12f.png" alt=""></span>
-                        </a>
-                        <h6 class="u-custom-item u-text u-text-default u-text-1">
-                          <span class="u-text-palette-2-base" style="font-weight: 700;">'.$row['Prix'].'&nbsp;</span>
-                          <span style="font-weight: 700;">EUR</span>
-                        </h6>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-'; 
-}
-?>
-
-  
-
+          <script src="//api.dedipass.com/v1/pay.js"></script>
         </div>
         <div class="u-border-3 u-border-black u-container-style u-custom-color-8 u-group u-shape-rectangle u-group-13">
           <div class="u-container-layout u-container-layout-19">
             <div class="u-border-3 u-border-black u-border-no-left u-border-no-right u-border-no-top u-container-style u-custom-color-1 u-expanded-width u-group u-shape-rectangle u-group-14">
               <div class="u-container-layout u-valign-middle u-container-layout-20">
-                <h6 class="u-text u-text-default u-text-7">Saisir votre code</h6>
+              <div data-dedipass="8a3ab8c0675a2e42b65041056955a076" data-dedipass-custom=""></div>
               </div>
             </div>
-            <div class="u-form u-form-1">
-              <form action="https://forms.nicepagesrv.com/v2/form/process" class="u-clearfix u-form-spacing-25 u-form-vertical u-inner-form" source="email" name="form" style="padding: 38px;">
-                <div class="u-form-email u-form-group u-label-top">
-                  <label for="email-f580" class="u-label u-label-1">Code</label>
-                  <input type="email" id="email-f580" name="text" class="u-border-2 u-border-custom-color-2 u-custom-color-6 u-input u-input-rectangle u-text-white u-input-1" required="">
-                </div>
-                <div class="u-align-center u-form-group u-form-submit u-label-top">
-                  <input type="submit" value="submit" class="u-form-control-hidden">
-                  <a href="#" class="u-border-3 u-border-active-custom-color-4 u-border-custom-color-4 u-border-hover-custom-color-4 u-border-no-left u-border-no-right u-border-no-top u-btn u-btn-round u-btn-submit u-button-style u-custom-color-3 u-hover-custom-color-3 u-radius-7 u-btn-7" data-animation-name="" data-animation-duration="0" data-animation-delay="0" data-animation-direction="">Confirmation</a>
-                </div>
-                <div class="u-form-send-message u-form-send-success"></div>
-                <div class="u-form-send-error u-form-send-message"></div>
-                <input type="hidden" value="" name="recaptchaResponse">
-                <input type="hidden" name="formServices" value="af7ba5ef84dce00e39fb07f32e4aa305">
-              </form>
             </div>
           </div>
         </div>
       </div>
     </section>
-    <section class="u-clearfix u-grey-90 u-section-3" id="sec-723f">
-      <div class="u-clearfix u-sheet u-sheet-1"></div>
-    </section>
+
     
     
 

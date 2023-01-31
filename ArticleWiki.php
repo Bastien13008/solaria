@@ -1,7 +1,7 @@
 <?php
 require_once 'config.php'; 
 
-$requete = $bdd->prepare('SELECT * FROM wiki_categorie WHERE categorie="' . $_GET['categorie'] .'"');
+$requete = $bdd->prepare('SELECT * FROM wiki_categorie WHERE id="' . $_GET['id'] .'"');
 $requete->execute();
 $reponsecategorie = $requete->fetch(PDO::FETCH_ASSOC);  
 
@@ -113,16 +113,16 @@ $requetedisable=$bdd->exec('UPDATE wiki_categorie SET View=View+1 WHERE id="'.$_
       <div class="u-clearfix u-sheet u-sheet-1">
         <div class="u-align-center u-container-style u-custom-color-8 u-group u-shape-rectangle u-group-1">
           <div class="u-container-layout u-valign-bottom u-container-layout-1">
-            <h5 class="u-text u-text-default u-text-1">'.$reponse['Title'].'</h5>
-            <img class="u-image u-image-default u-image-1" src="'.$reponse['Images'].'" alt="" data-image-width="1280" data-image-height="853">
+            <h5 class="u-text u-text-default u-text-1">'.$reponsecategorie['Titre'].'</h5>
+            <img class="u-image u-image-default u-image-1" src="'.$reponsecategorie['image'].'" alt="" data-image-width="1280" data-image-height="853">
             <div class="u-container-style u-group u-shape-rectangle u-group-2">
               <div class="u-container-layout u-container-layout-2">
-                <p class="u-large-text u-text u-text-default u-text-variant u-text-2">'.$reponse['Descript'].'</p>
+                <p class="u-large-text u-text u-text-default u-text-variant u-text-2">'.$reponsearticle['Article'].'</p>
               </div>
             </div>
             <div class="u-container-style u-expanded-width u-grey-80 u-group u-shape-rectangle u-group-3">
               <div class="u-container-layout u-valign-top u-container-layout-3">
-                <h2 class="u-text u-text-default u-text-3">'.$reponse['date'].' - '.$reponse['pseudo'].'</h2>
+                <h2 class="u-text u-text-default u-text-3">'.$reponsecategorie['auteur'].'</h2>
               </div>
             </div>
           </div>

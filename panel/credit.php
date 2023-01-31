@@ -165,6 +165,10 @@ if ($reponse['Rangs'] != 1) {
                         <label for="exampleInputName1">Url Images</label>
                         <input type="text" class="form-control" name="Files" placeholder="L'images">
                       </div>
+                      <div class="form-group">
+                        <label for="exampleInputName1">Url payment</label>
+                        <input type="text" class="form-control" name="Files" placeholder="L'images">
+                      </div>
             
                       <button type="submit" class="btn btn-primary mr-2">Valider</button>
                     </form>
