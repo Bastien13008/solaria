@@ -86,5 +86,14 @@ echo'
   <span class="menu-title">Chat</span>
 </a>
 </li>
+
+<li class="nav-item menu-items">
+<a class="nav-link" href="credit.php">
+  <span class="menu-icon">
+    <i class="mdi mdi-database  "></i>
+  </span>
+  <span class="menu-title">Crédits</span>
+</a>
+</li>
 ';
 ?>
