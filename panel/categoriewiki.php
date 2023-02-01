@@ -46,9 +46,17 @@ if ($reponse['Rangs'] != 1) {
         </div>
         <ul class="nav">
 
-        <?php
+
+          
+          
+        
+
+          <?php
       include 'navbar.php';
-?>
+        ?>
+     
+
+
         </ul>
       </nav>
       <!-- partial -->
@@ -127,7 +135,6 @@ if ($reponse['Rangs'] != 1) {
                     </div>
 
                   </a>
-                
           </div>
         </nav>
         <!-- partial -->
@@ -141,24 +148,24 @@ if ($reponse['Rangs'] != 1) {
                 </div>
               </div>
             </div>
+
             <div class="col-12 grid-margin stretch-card">
                 <div class="card">
                   <div class="card-body">
-                    <h4 class="card-title">Crée une offre Dedipass</h4>
+                    <h4 class="card-title">Crée des offres de crédits</h4>
 
-                    <form action="dedipass_post.php" method="post">
+
+                    
+                    <form action="categoriewiki_post.php" method="post">
                       <div class="form-group">
-                        <label for="exampleInputName1">Téléphone</label>
-                        <input type="text" class="form-control" name="tel" placeholder="Saisir le telephone">
+                        <label for="exampleInputName1">Titre</label>
+                        <input type="text" class="form-control" name="Titre" placeholder="Le pseudo">
                       </div>
                       <div class="form-group">
-                        <label for="exampleInputEmail3">Informations</label>
-                        <input type="text" class="form-control" name="info" placeholder="L'informations">
+                        <label for="exampleInputName1">Url Images</label>
+                        <input type="text" class="form-control" name="Files" placeholder="L'images">
                       </div>
-                      <div class="form-group">
-                        <label for="exampleInputPassword4">Prix</label>
-                        <input type="text" class="form-control" name="prix" placeholder="Le Prix">
-                      </div>                    
+            
                       <button type="submit" class="btn btn-primary mr-2">Valider</button>
                     </form>
 
@@ -171,7 +178,7 @@ if ($reponse['Rangs'] != 1) {
               <div class="col-12 grid-margin">
                 <div class="card">
                   <div class="card-body">
-                    <h4 class="card-title">List des offres Dedipass</h4>
+                    <h4 class="card-title">List des catégories</h4>
                     <div class="table-responsive">
 <table class="table" id="table-data">
 <thead>
@@ -179,19 +186,17 @@ if ($reponse['Rangs'] != 1) {
   <th>
     </div>
   </th>
-  <th> Téléphone </th>
-  <th> L'information </th>
-  <th> Le prix </th>
+  <th> L'Auteur </th>
+  <th> Le Titre </th>
   <th> Options </th>
 </tr>
 </thead>
   <?php
-  
-  $pdo = new PDO('mysql:host=localhost;dbname=solaria_bdd', 'solaria', 'Cjv_j7197');
-  $stmt = $pdo->prepare('SELECT * FROM Dedipass');
+  require_once '../config.php'; 
+  $stmt = $bdd->prepare('SELECT * FROM wiki_categorie');
   $stmt->execute();
   
-  while ($reponsededi = $stmt->fetch(PDO::FETCH_ASSOC)) {
+  while ($reponsepay = $stmt->fetch(PDO::FETCH_ASSOC)) {
       echo '
                 <tbody>
                   <tr>
@@ -201,20 +206,19 @@ if ($reponse['Rangs'] != 1) {
                         </label>
                       </div>
                     </td>
-                    <td> '.$reponsededi['Tel'].'</td>
-                    <td> '.$reponsededi['Info'].'</td>
-                    <td> '.$reponsededi['Prix'].'</td>
+                    <td>
+                    <img src="https://mc-heads.net/avatar/'. $reponsepay['auteur'].'/45" alt="image" />
+                    <span class="pl-2">'.$reponsepay['auteur'].'</span>
+                    </td>
+                    <td> '.$reponsepay['Titre'].'</td>
                     ';
-
-        
-                  
-
+                
 
                     echo'
                     <td>
-                    <a href="deletededipass.php?id='.$reponsededi['id'].'">
+                    <a href="deletewikicategorie.php?id='.$reponsepay['id'].'">
                     <button type="button" class="btn btn-danger btn-icon-text">
-                    <i class="mdi mdi-delete-forever  btn-icon-prepend" ></i> Supprime </button>   
+                    <i class="mdi mdi-delete-forever  btn-icon-prepend" ></i> Supprimer </button>   
                     </a>                 
                     </td>
 

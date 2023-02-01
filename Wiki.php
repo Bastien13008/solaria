@@ -1,14 +1,4 @@
 <?php
-require_once 'config.php'; 
-
-$requete = $bdd->prepare('SELECT * FROM Article WHERE ID="' . $_GET['id'] .'"');
-$requete->execute();
-$reponse = $requete->fetch(PDO::FETCH_ASSOC);  
-
-$requetedisable=$bdd->exec('UPDATE Article SET View=View+1 WHERE ID="'.$_GET['id'].'"');
-
-?>
-<?php
 session_start();
 $ping = file_get_contents("https://api.serveurs-minecraft.com/api.php?Joueurs_En_Ligne_Ping&ip=play.skysword.fr&port=25565");
 ?>
@@ -18,14 +8,16 @@ $ping = file_get_contents("https://api.serveurs-minecraft.com/api.php?Joueurs_En
     <meta charset="utf-8">
     <meta name="keywords" content="">
     <meta name="description" content="">
-    <title>Article</title>
+    <title>Wiki</title>
     <link rel="stylesheet" href="css/solaria.css" media="screen">
-<link rel="stylesheet" href="Article.css" media="screen">
+<link rel="stylesheet" href="Wiki.css" media="screen">
     <script class="u-script" type="text/javascript" src="js/jquery.js" defer=""></script>
     <script class="u-script" type="text/javascript" src="js/solaria.js" defer=""></script>
     <meta name="generator" content="Nicepage 5.3.2, nicepage.com">
+    <meta name="referrer" content="origin">
     <link id="u-theme-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i">
     <link id="u-page-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400i,700,700i">
+    
     
     
     
@@ -36,7 +28,7 @@ $ping = file_get_contents("https://api.serveurs-minecraft.com/api.php?Joueurs_En
 		"name": "Solaria"
 }</script>
     <meta name="theme-color" content="#478ac9">
-    <meta property="og:title" content="Article">
+    <meta property="og:title" content="Wiki">
     <meta property="og:description" content="">
     <meta property="og:type" content="website">
   </head>
@@ -121,24 +113,45 @@ $ping = file_get_contents("https://api.serveurs-minecraft.com/api.php?Joueurs_En
           </div>
         </div>
       </div>
-      
     </section>
-    <?php
-    echo'
+
     <section class="u-border-10 u-border-custom-color-2 u-border-no-left u-border-no-right u-clearfix u-custom-color-1 u-section-2" id="sec-27d3">
       <div class="u-clearfix u-sheet u-sheet-1">
-        <div class="u-align-center u-container-style u-custom-color-8 u-group u-shape-rectangle u-group-1">
-          <div class="u-container-layout u-valign-bottom u-container-layout-1">
-            <h5 class="u-text u-text-default u-text-1">'.$reponse['Title'].'</h5>
-            <img class="u-image u-image-default u-image-1" src="'.$reponse['Images'].'" alt="" data-image-width="1280" data-image-height="853">
-            <div class="u-container-style u-group u-shape-rectangle u-group-2">
-              <div class="u-container-layout u-container-layout-2">
-                <p class="u-large-text u-text u-text-default u-text-variant u-text-2">'.$reponse['Descript'].'</p>
-              </div>
-            </div>
-            <div class="u-container-style u-expanded-width u-grey-80 u-group u-shape-rectangle u-group-3">
-              <div class="u-container-layout u-valign-top u-container-layout-3">
-                <h2 class="u-text u-text-default u-text-3">'.$reponse['date'].' - '.$reponse['pseudo'].'</h2>
+        <div class="u-container-style u-group u-shape-rectangle u-group-1"></div>
+        <div class="u-container-style u-group u-shape-rectangle u-group-2">
+          <div class="u-container-layout u-container-layout-1">
+            <div class="u-list u-list-1">
+              <div class="u-repeater u-repeater-1">
+
+              
+<?php
+require_once 'config.php'; 
+$bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+$stmt = $bdd->prepare("SELECT * FROM wiki_categorie"); 
+$stmt->execute();
+
+$result = $stmt->setFetchMode(PDO::FETCH_ASSOC); 
+
+while ($row = $stmt->fetch()) {
+  echo'
+                <div class="u-container-style u-list-item u-repeater-item">
+                  <div class="u-container-layout u-similar-container u-valign-middle u-container-layout-2">
+                    <div class="u-border-5 u-border-black u-container-style u-custom-color-8 u-group u-shape-rectangle u-group-3">
+                    <a href="ArticleWiki.php?id='.$row['id'].'&categorie='.$row['Titre'].'">
+                      <div class="u-container-layout u-container-layout-3">
+                        <img class="u-image u-image-round u-radius-10 u-image-1" src="'.$row['image'].'" alt="" data-image-width="1920" data-image-height="1080">
+                        <h6 class="u-text u-text-default u-text-1">'.$row['Titre'].'</h6>
+                      </div>
+                      </a>
+                    </div>
+                  </div>
+                </div>';
+}
+                ?>
+                
+
+                
+
               </div>
             </div>
           </div>
@@ -148,8 +161,20 @@ $ping = file_get_contents("https://api.serveurs-minecraft.com/api.php?Joueurs_En
     <section class="u-clearfix u-grey-90 u-section-3" id="sec-723f">
       <div class="u-clearfix u-sheet u-sheet-1"></div>
     </section>
-    ';
-    ?>
     
-
-</body></html>
+    
+    
+    
+    <section class="u-backlink u-clearfix u-grey-80">
+      <a class="u-link" href="https://nicepage.com/website-design" target="_blank">
+        <span>Free Website Design</span>
+      </a>
+      <p class="u-text">
+        <span>created with</span>
+      </p>
+      <a class="u-link" href="" target="_blank">
+        <span>WYSIWYG Web Builder</span>
+      </a>. 
+    </section>
+  </body>
+  </html>

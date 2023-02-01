@@ -116,7 +116,7 @@ $reponse = $requete->fetch(PDO::FETCH_ASSOC);
         <div class="u-black u-container-style u-group u-opacity u-opacity-45 u-shape-rectangle u-group-1">
           <div class="u-container-layout u-container-layout-1">
             <a href="blog/blog.html" class="u-border-3 u-border-active-custom-color-4 u-border-custom-color-4 u-border-hover-custom-color-4 u-border-no-left u-border-no-right u-border-no-top u-btn u-btn-round u-button-style u-custom-color-3 u-hover-custom-color-3 u-radius-7 u-btn-1">play.solaria-mc.fr</a>
-            <h4 class="u-text u-text-default u-text-1"><span class="u-file-icon u-icon u-text-white u-icon-1"><img src="/c7cf08ad72c43/44386-1c4cf74d.png" alt=""></span>&nbsp;Rejoins <span style="font-style: italic;" class="u-text-custom-color-3">70 </span>joueurs 
+            <h4 class="u-text u-text-default u-text-1"><span class="u-file-icon u-icon u-text-white u-icon-1"><img src="images/44386-1c4cf74d.png" alt=""></span>&nbsp;Rejoins <?php echo'<span style="font-style: italic;" class="u-text-custom-color-3">'.$ping.' </span>';?>joueurs 
             </h4>
           </div>
         </div>
@@ -147,7 +147,7 @@ $reponse = $requete->fetch(PDO::FETCH_ASSOC);
 ?>
          
                 <a href="discord.solaria-mc.fr" class="u-border-3 u-border-active-custom-color-4 u-border-custom-color-4 u-border-hover-custom-color-4 u-border-no-left u-border-no-right u-border-no-top u-btn u-btn-round u-button-style u-custom-color-3 u-hover-custom-color-3 u-radius-7 u-btn-1">Espace Discord</a>
-                <a href="Credit.php" class="u-border-3 u-border-active-custom-color-4 u-border-custom-color-4 u-border-hover-custom-color-4 u-border-no-left u-border-no-right u-border-no-top u-btn u-btn-round u-button-style u-custom-color-3 u-hover-custom-color-3 u-radius-7 u-btn-2">Créditer mon compte</a>
+                <a href="#sec-83da" class="u-border-3 u-border-active-custom-color-4 u-border-custom-color-4 u-border-hover-custom-color-4 u-border-no-left u-border-no-right u-border-no-top u-btn u-btn-round u-button-style u-custom-color-3 u-dialog-link u-hover-custom-color-3 u-radius-7 u-btn-2">Créditer mon compte</a>
          
                 
                 <div class="u-container-style u-custom-color-7 u-group u-radius-4 u-shape-round u-group-4">
@@ -260,6 +260,134 @@ $reponse = $requete->fetch(PDO::FETCH_ASSOC);
     </section>
     
     
-    
-    
+<section class="u-align-center u-black u-clearfix u-container-style u-dialog-block u-opacity u-opacity-70 u-dialog-section-6" id="sec-83da">
+  <div class="u-align-center u-container-style u-dialog u-shape-rectangle u-white u-dialog-1">
+    <div class="u-container-layout u-container-layout-1">
+      <img alt="" class="u-expanded-width u-image u-image-default u-image-1" data-image-width="1920" data-image-height="1080" src="images/wallpaper-02.jpg">
+      <div class="u-container-style u-group u-shape-rectangle u-group-1">
+        <div class="u-container-layout u-container-layout-2">
+        <?php
+                require_once 'config.php'; 
+                $requete = $bdd->prepare('SELECT * FROM dedipass');
+                $requete->execute();
+                $reponse = $requete->fetch(PDO::FETCH_ASSOC);
+                echo'
+              <div data-dedipass="'.$reponse['public_key'].'" data-dedipass-custom=""></div>
+              <script src="//api.dedipass.com/v1/pay.js"></script>
+              ';
+?>            </div>
+      </div>
+    </div><button class="u-border-1 u-border-grey-25 u-dialog-close-button u-icon u-icon-circle u-text-custom-color-1 u-white u-icon-1"><svg class="u-svg-link" preserveAspectRatio="xMidYMin slice" viewBox="0 0 16 16" style=""><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-6e8b"></use></svg><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" xml:space="preserve" class="u-svg-content" viewBox="0 0 16 16" x="0px" y="0px" id="svg-6e8b"><rect x="7" y="0" transform="matrix(0.7071 -0.7071 0.7071 0.7071 -3.3138 8.0002)" width="2" height="16"></rect><rect x="0" y="7" transform="matrix(0.7071 -0.7071 0.7071 0.7071 -3.3138 8.0002)" width="16" height="2"></rect></svg></button>
+  </div>
+</section><style>.u-dialog-section-6 .u-dialog-1 {
+width: 1111px;
+min-height: 707px;
+height: auto;
+background-image: none;
+margin: 68px calc(((100% - 1140px) / 2)) 60px auto;
+}
+
+.u-dialog-section-6 .u-container-layout-1 {
+padding: 0;
+}
+
+.u-dialog-section-6 .u-image-1 {
+height: 390px;
+margin-top: 0;
+margin-bottom: 0;
+}
+
+.u-dialog-section-6 .u-group-1 {
+width: 609px;
+min-height: 222px;
+height: auto;
+margin: 53px auto 0;
+}
+
+.u-dialog-section-6 .u-container-layout-2 {
+padding: 30px;
+}
+
+.u-dialog-section-6 .u-text-1 {
+margin-bottom: 0;
+margin-top: 0;
+}
+
+.u-dialog-section-6 .u-icon-1 {
+width: 31px;
+height: 31px;
+background-image: none;
+left: auto;
+top: 20px;
+position: absolute;
+right: 20px;
+padding: 2px;
+}
+
+@media (max-width: 1199px) {
+.u-dialog-section-6 .u-dialog-1 {
+width: 940px;
+margin-right: calc(((100% - 940px) / 2));
+}
+
+.u-dialog-section-6 .u-image-1 {
+height: 390px;
+}
+
+.u-dialog-section-6 .u-group-1 {
+width: 609px;
+min-height: 222px;
+height: auto;
+}
+}
+
+@media (max-width: 991px) {
+.u-dialog-section-6 .u-dialog-1 {
+width: 720px;
+min-height: 683px;
+margin-right: auto;
+}
+
+.u-dialog-section-6 .u-group-1 {
+margin-top: 32px;
+}
+}
+
+@media (max-width: 767px) {
+.u-dialog-section-6 .u-dialog-1 {
+width: 540px;
+min-height: 730px;
+}
+
+.u-dialog-section-6 .u-group-1 {
+width: 540px;
+margin-top: 118px;
+}
+
+.u-dialog-section-6 .u-container-layout-2 {
+padding-left: 10px;
+padding-right: 10px;
+}
+}
+
+@media (max-width: 575px) {
+.u-dialog-section-6 .u-dialog-1 {
+width: 340px;
+min-height: 362px;
+}
+
+.u-dialog-section-6 .u-image-1 {
+height: 178px;
+}
+
+.u-dialog-section-6 .u-group-1 {
+min-height: 148px;
+width: 308px;
+margin-top: 7px;
+}
+
+.u-dialog-section-6 .u-text-1 {
+margin-top: 30px;
+}
+}</style>
 </body></html>

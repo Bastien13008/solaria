@@ -1,16 +1,14 @@
 <?php
-require_once 'config.php'; 
+session_start();
 
-$requete = $bdd->prepare('SELECT * FROM Article WHERE ID="' . $_GET['id'] .'"');
-$requete->execute();
-$reponse = $requete->fetch(PDO::FETCH_ASSOC);  
-
-$requetedisable=$bdd->exec('UPDATE Article SET View=View+1 WHERE ID="'.$_GET['id'].'"');
-
+$profil = file_get_contents("https://mc-heads.net/avatar/Akkranne/100");
+$ping = file_get_contents("https://api.serveurs-minecraft.com/api.php?Joueurs_En_Ligne_Ping&ip=play.skysword.fr&port=25565");
 ?>
 <?php
-session_start();
-$ping = file_get_contents("https://api.serveurs-minecraft.com/api.php?Joueurs_En_Ligne_Ping&ip=play.skysword.fr&port=25565");
+require_once 'config.php'; 
+$requete = $bdd->prepare('SELECT * FROM Utilisateur');
+$requete->execute();
+$reponse = $requete->fetch(PDO::FETCH_ASSOC);
 ?>
 <!DOCTYPE html>
 <html style="font-size: 16px;" lang="fr"><head>
@@ -18,14 +16,15 @@ $ping = file_get_contents("https://api.serveurs-minecraft.com/api.php?Joueurs_En
     <meta charset="utf-8">
     <meta name="keywords" content="">
     <meta name="description" content="">
-    <title>Article</title>
+    <title>Boutique</title>
     <link rel="stylesheet" href="css/solaria.css" media="screen">
-<link rel="stylesheet" href="Article.css" media="screen">
+<link rel="stylesheet" href="Boutique.css" media="screen">
     <script class="u-script" type="text/javascript" src="js/jquery.js" defer=""></script>
     <script class="u-script" type="text/javascript" src="js/solaria.js" defer=""></script>
     <meta name="generator" content="Nicepage 5.3.2, nicepage.com">
     <link id="u-theme-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i">
     <link id="u-page-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400i,700,700i">
+    
     
     
     
@@ -36,7 +35,7 @@ $ping = file_get_contents("https://api.serveurs-minecraft.com/api.php?Joueurs_En
 		"name": "Solaria"
 }</script>
     <meta name="theme-color" content="#478ac9">
-    <meta property="og:title" content="Article">
+    <meta property="og:title" content="Boutique">
     <meta property="og:description" content="">
     <meta property="og:type" content="website">
   </head>
@@ -66,6 +65,8 @@ $ping = file_get_contents("https://api.serveurs-minecraft.com/api.php?Joueurs_En
                 ';
             }
             ?>
+          
+          
           
           
           
@@ -116,29 +117,102 @@ $ping = file_get_contents("https://api.serveurs-minecraft.com/api.php?Joueurs_En
         <div class="u-black u-container-style u-group u-opacity u-opacity-45 u-shape-rectangle u-group-1">
           <div class="u-container-layout u-container-layout-1">
             <a href="blog/blog.html" class="u-border-3 u-border-active-custom-color-4 u-border-custom-color-4 u-border-hover-custom-color-4 u-border-no-left u-border-no-right u-border-no-top u-btn u-btn-round u-button-style u-custom-color-3 u-hover-custom-color-3 u-radius-7 u-btn-1">play.solaria-mc.fr</a>
-            <h4 class="u-text u-text-default u-text-1"><span class="u-file-icon u-icon u-text-white u-icon-1"><img src="images/44386-1c4cf74d.png" alt=""></span>&nbsp;Rejoins <?php echo'<span style="font-style: italic;" class="u-text-custom-color-3">'.$ping.' </span>';?>joueurs 
+            <h4 class="u-text u-text-default u-text-1"><span class="u-file-icon u-icon u-text-white u-icon-1"><img src="/c7cf08ad72c43/44386-1c4cf74d.png" alt=""></span>&nbsp;Rejoins <span style="font-style: italic;" class="u-text-custom-color-3">70 </span>joueurs 
             </h4>
           </div>
         </div>
       </div>
       
     </section>
-    <?php
-    echo'
     <section class="u-border-10 u-border-custom-color-2 u-border-no-left u-border-no-right u-clearfix u-custom-color-1 u-section-2" id="sec-27d3">
       <div class="u-clearfix u-sheet u-sheet-1">
-        <div class="u-align-center u-container-style u-custom-color-8 u-group u-shape-rectangle u-group-1">
-          <div class="u-container-layout u-valign-bottom u-container-layout-1">
-            <h5 class="u-text u-text-default u-text-1">'.$reponse['Title'].'</h5>
-            <img class="u-image u-image-default u-image-1" src="'.$reponse['Images'].'" alt="" data-image-width="1280" data-image-height="853">
-            <div class="u-container-style u-group u-shape-rectangle u-group-2">
+        <div class="u-container-style u-group u-shape-rectangle u-group-1"></div>
+        <div class="u-container-style u-group u-shape-rectangle u-group-2">
+          <div class="u-container-layout u-container-layout-1">
+            <div class="u-border-5 u-border-black u-container-style u-custom-color-8 u-group u-shape-rectangle u-group-3">
               <div class="u-container-layout u-container-layout-2">
-                <p class="u-large-text u-text u-text-default u-text-variant u-text-2">'.$reponse['Descript'].'</p>
+                <div class="u-border-5 u-border-black u-border-no-left u-border-no-right u-border-no-top u-container-style u-custom-color-3 u-expanded-width u-group u-shape-rectangle u-group-4">
+                  <div class="u-container-layout u-container-layout-3">
+                    <h6 class="u-text u-text-body-alt-color u-text-default u-text-1">Paiements RECENTS</h6>
+                  </div>
+                </div>
+                <div class="u-list u-list-1">
+                  <div class="u-repeater u-repeater-1">
+                  <?php
+require_once 'config.php'; 
+$bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+$stmt = $bdd->prepare("SELECT * FROM Payment ORDER BY Date DESC LIMIT 3"); 
+$stmt->execute();
+
+$result = $stmt->setFetchMode(PDO::FETCH_ASSOC); 
+
+while ($row = $stmt->fetch()) {
+  echo'
+                    <div class="u-container-style u-list-item u-repeater-item">
+                      <div class="u-container-layout u-similar-container u-container-layout-4">
+                        <img class="u-image u-image-round u-radius-10 u-image-1" src="https://mc-heads.net/avatar/'. $reponse['pseudo'].'/45" alt="" data-image-width="1280" data-image-height="853">
+                        <h6 class="u-text u-text-2">'.$row['pseudo'].'</h6>
+                      </div>
+                    </div>
+                    ';
+}
+?>
+
+               
+            
+                  </div>
+                </div>
               </div>
             </div>
-            <div class="u-container-style u-expanded-width u-grey-80 u-group u-shape-rectangle u-group-3">
-              <div class="u-container-layout u-valign-top u-container-layout-3">
-                <h2 class="u-text u-text-default u-text-3">'.$reponse['date'].' - '.$reponse['pseudo'].'</h2>
+            <div class="u-expanded-width-xs u-list u-list-2">
+              <div class="u-repeater u-repeater-2">
+
+              <?php
+require_once 'config.php'; 
+$bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+$stmt = $bdd->prepare("SELECT * FROM Boutique"); 
+$stmt->execute();
+
+$result = $stmt->setFetchMode(PDO::FETCH_ASSOC); 
+
+while ($row = $stmt->fetch()) {
+  echo'
+                <div class="u-container-style u-list-item u-repeater-item">
+                  <div class="u-container-layout u-similar-container u-valign-top-lg u-valign-top-md u-valign-top-xl u-container-layout-7">
+                    <div class="u-border-5 u-border-black u-container-style u-group u-palette-5-dark-3 u-shape-rectangle u-group-5">
+                      <div class="u-container-layout u-container-layout-8">
+                        <div class="u-grey-80 u-radius-14 u-shape u-shape-round u-shape-1"></div>
+                        <h6 class="u-text u-text-custom-color-3 u-text-default u-text-5">'.$row['Prix'].'$</h6>
+                        <img class="u-image u-image-contain u-image-round u-radius-10 u-image-4" src="'.$row['image'].'" alt="" data-image-width="1280" data-image-height="1107">
+                        <div class="u-container-style u-expanded-width u-grey-80 u-group u-shape-rectangle u-group-6">
+                          <div class="u-container-layout u-valign-middle u-container-layout-9">
+                            <a href="blog/blog.html" class="u-border-3 u-border-active-custom-color-4 u-border-custom-color-4 u-border-hover-custom-color-4 u-border-no-left u-border-no-right u-border-no-top u-btn u-btn-round u-button-style u-custom-color-3 u-hover-custom-color-3 u-radius-7 u-btn-1">Acheter</a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+         ';
+}
+?>
+    
+              </div>
+            </div>
+            <div class="u-border-5 u-border-black u-container-style u-custom-color-8 u-group u-shape-rectangle u-group-17">
+              <div class="u-container-layout u-container-layout-25">
+                <div class="u-border-5 u-border-black u-border-no-left u-border-no-right u-border-no-top u-container-style u-custom-color-3 u-expanded-width u-group u-shape-rectangle u-group-18">
+                  <div class="u-container-layout u-valign-top u-container-layout-26">
+                    <h6 class="u-text u-text-body-alt-color u-text-11">Votre comptre</h6>
+                  </div>
+                </div>
+                <?php
+                echo'
+                <img class="u-image u-image-default u-image-10" src="https://mc-heads.net/avatar/'. $reponse['pseudo'].'/45" alt="" data-image-width="1280" data-image-height="853">
+                <h6 class="u-text u-text-default u-text-12">'.$reponse['pseudo'].'</h6>
+                <h6 class="u-text u-text-default u-text-13">'.$reponse['token'].' Token</h6>
+                ';
+                ?>
               </div>
             </div>
           </div>
@@ -148,8 +222,10 @@ $ping = file_get_contents("https://api.serveurs-minecraft.com/api.php?Joueurs_En
     <section class="u-clearfix u-grey-90 u-section-3" id="sec-723f">
       <div class="u-clearfix u-sheet u-sheet-1"></div>
     </section>
-    ';
-    ?>
+    
+    
+    
     
 
+  
 </body></html>

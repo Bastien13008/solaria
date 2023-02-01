@@ -1,0 +1,2 @@
+RewriteEngine on
+RewriteRule ^Profil/?$ Profil.php [NC,L]

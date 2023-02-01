@@ -41,15 +41,6 @@ echo'
 </a>
 </li>
 
-<li class="nav-item menu-items">
-<a class="nav-link" href="dedipass.php">
-  <span class="menu-icon">
-    <i class="mdi mdi-cash  "></i>
-  </span>
-  <span class="menu-title">Payements</span>
-</a>
-</li>
-
 
 <li class="nav-item menu-items">
 <a class="nav-link" href="vote.php">
@@ -88,11 +79,27 @@ echo'
 </li>
 
 <li class="nav-item menu-items">
-<a class="nav-link" href="credit.php">
+<a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
   <span class="menu-icon">
-    <i class="mdi mdi-database  "></i>
+    <i class="mdi mdi-book"></i>
   </span>
-  <span class="menu-title">Crédits</span>
+  <span class="menu-title">Wiki</span>
+  <i class="menu-arrow"></i>
+</a>
+<div class="collapse" id="ui-basic">
+  <ul class="nav flex-column sub-menu">
+    <li class="nav-item"> <a class="nav-link" href="categoriewiki.php">Catégorie</a></li>
+    <li class="nav-item"> <a class="nav-link" href="articleswiki.php">Articles</a></li>
+  </ul>
+</div>
+</li>
+
+<li class="nav-item menu-items">
+<a class="nav-link" href="boutique.php">
+  <span class="menu-icon">
+    <i class="mdi mdi-chat  "></i>
+  </span>
+  <span class="menu-title">Boutique</span>
 </a>
 </li>
 ';

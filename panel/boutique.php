@@ -156,14 +156,14 @@ if ($reponse['Rangs'] != 1) {
 
 
                     
-                    <form action="credit_post.php" method="post">
+                    <form action="boutique_post.php" method="post">
                       <div class="form-group">
-                        <label for="exampleInputName1">public_key</label>
-                        <input type="text" class="form-control" name="public_key" placeholder="public_key">
+                        <label for="exampleInputName1">Prix</label>
+                        <input type="text" class="form-control" name="Prix" placeholder="Prix">
                       </div>
                       <div class="form-group">
-                        <label for="exampleInputName1">private_key</label>
-                        <input type="text" class="form-control" name="private_key" placeholder="private_key">
+                        <label for="exampleInputName1">Images</label>
+                        <input type="text" class="form-control" name="image" placeholder="Images">
                       </div>
 
                       <button type="submit" class="btn btn-primary mr-2">Valider</button>
@@ -186,15 +186,14 @@ if ($reponse['Rangs'] != 1) {
   <th>
     </div>
   </th>
-  <th> public_key </th>
-  <th> private_key </th>
+  <th> Prix </th>
   <th> Options </th>
 </tr>
 </thead>
   <?php
   
   require_once '../config.php'; 
-  $stmt = $bdd->prepare('SELECT * FROM dedipass');
+  $stmt = $bdd->prepare('SELECT * FROM boutique');
   $stmt->execute();
   
   while ($reponsepay = $stmt->fetch(PDO::FETCH_ASSOC)) {
@@ -206,9 +205,7 @@ if ($reponse['Rangs'] != 1) {
                         <label class="form-check-label">
                         </label>
                       </div>
-                    <td> '.$reponsepay['public_key'].'</td>
-                    <td> '.$reponsepay['private_key'].'</td>
-
+                    <td> '.$reponsepay['Prix'].'</td>
                     ';
                 
 
