@@ -2,7 +2,6 @@
 session_start();
 
 $profil = file_get_contents("https://mc-heads.net/avatar/Akkranne/100");
-$ping = file_get_contents("https://api.serveurs-minecraft.com/api.php?Joueurs_En_Ligne_Ping&ip=play.skysword.fr&port=25565");
 ?>
 <?php
 require_once 'config.php'; 
@@ -116,8 +115,8 @@ $reponse = $requete->fetch(PDO::FETCH_ASSOC);
         <div class="u-black u-container-style u-group u-opacity u-opacity-45 u-shape-rectangle u-group-1">
           <div class="u-container-layout u-container-layout-1">
             <a href="blog/blog.html" class="u-border-3 u-border-active-custom-color-4 u-border-custom-color-4 u-border-hover-custom-color-4 u-border-no-left u-border-no-right u-border-no-top u-btn u-btn-round u-button-style u-custom-color-3 u-hover-custom-color-3 u-radius-7 u-btn-1">play.solaria-mc.fr</a>
-            <h4 class="u-text u-text-default u-text-1"><span class="u-file-icon u-icon u-text-white u-icon-1"><img src="images/44386-1c4cf74d.png" alt=""></span>&nbsp;Rejoins <?php echo'<span style="font-style: italic;" class="u-text-custom-color-3">'.$ping.' </span>';?>joueurs 
-            </h4>
+            <div  id="messages">
+
           </div>
         </div>
       </div>
@@ -390,4 +389,11 @@ margin-top: 7px;
 margin-top: 30px;
 }
 }</style>
+    <script>
+setInterval('load_messages()', 500);
+function load_messages(){
+    $('#messages').load("updateplayer.php");
+}
+
+    </script>
 </body></html>
