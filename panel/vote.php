@@ -179,6 +179,8 @@ if ($reponse['Rangs'] != 1) {
   <th> Les votes </th>
   <th> Statut </th>
   <th> Options </th>
+  <th> Informer </th>
+
 </tr>
 </thead>
   <?php
@@ -226,6 +228,21 @@ if ($reponse['Rangs'] != 1) {
                     <i class="mdi mdi-delete-forever  btn-icon-prepend" ></i> Reinitialiser </button>   
                     </a>                 
                     </td>
+                    <td>
+                    ';
+                  
+                    
+              if($reponsepay['Vote'] <= 5) { 
+                echo'
+                <td>
+                <a href="mail.php?id='.$reponsepay['ID'].'">
+                <button type="button" class="btn btn-info btn-icon-text">
+                <i class="mdi mdi-bell  btn-icon-prepend" ></i> Notifier </button>   
+                </a> 
+                </td>';
+              } 
+              echo'
+              </td>
 
                 </tr>';
   }
