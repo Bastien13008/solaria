@@ -20,11 +20,12 @@ if(!empty($_POST['pseudo']) && !empty($_POST['email']) && !empty($_POST['passwor
                     if(filter_var($email, FILTER_VALIDATE_EMAIL)){ 
                         if($password === $password_retype){ 
                             $ip = $_SERVER['REMOTE_ADDR']; 
+                            $password_crypted = md5($password); // Utilisation de md5() pour crypter le mot de passe
                             $insert = $bdd->prepare('INSERT INTO Utilisateur(pseudo, email, password, ip, token) VALUES(:pseudo, :email, :password, :ip, :token)');
                             $insert->execute(array(
                                 'pseudo' => $pseudo,
                                 'email' => $email,
-                                'password' => $password,
+                                'password' => $password_crypted, // Utilisation du mot de passe crypté
                                 'ip' => $ip,
                                 'token' => $token
                             ));
@@ -36,3 +37,4 @@ if(!empty($_POST['pseudo']) && !empty($_POST['email']) && !empty($_POST['passwor
             }else{ header('Location: ../Inscription.php?reg_err=pseudo_length'); die();}
         }else{ header('Location: ../Inscription.php?reg_err=already'); die();}
     }
+?>
