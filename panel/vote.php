@@ -228,7 +228,6 @@ if ($reponse['Rangs'] != 1) {
                     <i class="mdi mdi-delete-forever  btn-icon-prepend" ></i> Reinitialiser </button>   
                     </a>                 
                     </td>
-                    <td>
                     ';
                   
                     
